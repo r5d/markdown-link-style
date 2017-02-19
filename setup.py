@@ -44,7 +44,7 @@ config = {
     'author_email': 's@ricketyspace.net',
     'license': 'GNU General Public License version 3 or later',
     'classifiers': [
-        'Development Status :: 1 - Planning',
+        'Development Status :: 2 - Pre-Alpha',
         'Environment :: Console',
         'Intended Audience :: Developers',
         'Intended Audience :: End Users/Desktop',
