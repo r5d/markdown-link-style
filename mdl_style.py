@@ -186,9 +186,9 @@ def _get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('link_style', choices=['inline', 'footnote'],
-                        help="Markdown Link style.")
+                        help='Markdown Link style.')
     parser.add_argument('file', type=argparse.FileType('r'),
-                        help="Path to Markdown file.")
+                        help='Path to Markdown file.')
     return parser.parse_args()
 
 
