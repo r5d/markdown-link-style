@@ -18,14 +18,52 @@
 #   along with markdown-link-style (see COPYING).  If not, see
 #   <http://www.gnu.org/licenses/>.
 
+from mistune import Renderer, Markdown
 from nose.tools import *
+from pkg_resources import resource_string
 
 from mdl_style import *
 
-class TestMdlStyle(object):
+
+def _get_data(f):
+    rs = resource_string(__name__, '/'.join(['data', f]))
+    return rs.decode()
+
+class TestLSRendererIL(object):
+    """Test class for mdl_style.LSRenderer inline link style.
+
+    """
 
     def setup(self):
-        print('running setup...')
+        self.md = LSMarkdown(link_style='inline')
+
+    def test_autolink_00(self):
+        d = _get_data('autolink_00.md')
+        d_expected = _get_data('autolink_00-expected.md')
+        assert_equals(self.md(d), d_expected)
+
+
+    def test_link_footnote_to_inline_style_conversion_00(self):
+        d = _get_data('inline_link_style_00.md')
+        expected_result = _get_data('inline_link_style_00-expected.md')
+        assert_equal(self.md(d), expected_result)
 
     def teardown(self):
-        print('running teardown...')
+        pass
+
+
+class TestLSRendererFN(object):
+    """Test class for mdl_style.LSRenderer footnote link style.
+
+    """
+
+    def setup(self):
+        self.md = LSMarkdown(link_style='footnote')
+
+    def test_link_inline_to_footnote_style_conversion_00(self):
+        d = _get_data('footnote_link_style_00.md')
+        expected_result = _get_data('footnote_link_style_00-expected.md')
+        assert_equal(self.md(d), d_expected)
+
+    def teardown(self):
+        pass

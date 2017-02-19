@@ -18,4 +18,33 @@
 #   along with markdown-link-style (see COPYING).  If not, see
 #   <http://www.gnu.org/licenses/>.
 
-__version__ = '0.1.0.dev1'
+import logging
+
+class MDLSLogger(object):
+    """Logging utility for modules in markdown-link-style.
+
+    """
+
+    def __init__(self, name):
+        self.logger = logging.getLogger(name)
+
+    def debug(msg, *args, **kwargs):
+        self.logger.debug(msg, *args, **kwargs)
+
+    def info(msg, *args, **kwargs):
+        self.logger.info(msg, *args, **kwargs)
+
+    def warning(msg, *args, **kwargs):
+        self.logger.warning(msg, *args, **kwargs)
+
+    def error(msg, *args, **kwargs):
+        self.logger.error(msg, *args, **kwargs)
+
+    def critical(msg, *args, **kwargs):
+        self.logger.critical(msg, *args, **kwargs)
+
+    def log(msg, *args, **kwargs):
+        self.logger.log(msg, *args, **kwargs)
+
+    def exception(msg, *args, **kwargs):
+        self.logger.exception(msg, *args, **kwargs)
