@@ -1,4 +1,6 @@
-#    Copyright © 2017 markdown-link-style contributors. See CONTRIBUTORS.
+#
+#   Copyright © 2017 markdown-link-style contributors. See
+#   CONTRIBUTORS.rst.
 #
 #    This file is part of markdown-link-style.
 #
