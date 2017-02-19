@@ -63,7 +63,7 @@ class TestLSRendererFN(object):
     def test_link_inline_to_footnote_style_conversion_00(self):
         d = _get_data('footnote_link_style_00.md')
         expected_result = _get_data('footnote_link_style_00-expected.md')
-        assert_equal(self.md(d), d_expected)
+        assert_equal(self.md(d), expected_result)
 
     def teardown(self):
         pass
