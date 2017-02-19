@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#   Copyright © 2017 markdown-link-style contributors. See
-#   CONTRIBUTORS.rst.
+#   Copyright © 2017 markdown-link-style contributors.
 #
 #    This file is part of markdown-link-style.
 #
