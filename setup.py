@@ -41,7 +41,7 @@ config = {
     'platforms': 'GNU/Linux',
     'url': 'https://git.ricketyspace.net/markdown-link-style',
     'author': 'rsiddharth',
-    'author_email': 'rsiddharth@ninthfloor.org',
+    'author_email': 's@ricketyspace.net',
     'license': 'GNU General Public License version 3 or later',
     'classifiers': [
         'Development Status :: 1 - Planning',
