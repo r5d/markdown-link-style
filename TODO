@@ -2,3 +2,56 @@
 
 TODO
 ====
+
+* Add unit tests for markdown_link_style.logging module.
+
+  A good place to put the unit tests for this module is under
+  ``tests/markdown_link_style/test_logging.py``.
+
+* Add unit test for ``mdl_style.LSBlockLexer``,
+  ``mdl_style.LSInlineLexer`` classes.
+
+  * The unit tests for these classes must go under
+  ``tests/test_mdl_style.py``.
+
+  * The unit tests must simply check contents of ``default_rules``
+    class variable.
+
+* Add unit test for ``mdl_style.LSMarkdown``.
+
+  The unit test must verify that the class variables ``renderer``,
+  ``inline``, ``block`` are instances of ``mdl_style.LSRenderer``,
+  ``mdl_style.InlineLexer`` and ``mdl_style.LSBlockLexer``
+  respectively.
+
+* Add unit tests for ``mdl_style.LSRenderer`` under
+  ``tests.test_mdl_style.TestLSRendererIL`` and
+  ``tests.test_mdl_style.TestLSRendererFN`` to verify that the
+  renderer does not modify block/inline elements other than links and
+  paragraphs.
+
+  Specifically, unit tests must be added to verify that the following
+  block/inline elements are not modified by the
+  ``mdl_style.LSRenderer`` renderer:
+
+  * Block elements:
+
+    * Paragraphs and Line Breaks
+    * Headers
+    * Blockquotes
+    * Lists
+    * Code Blocks
+    * Horizontal Rules
+
+  * Inline elements:
+
+    * Emphasis
+    * Code
+    * Images
+
+  For instance, if the input contains ``## This is an H2``, the
+  ``mdl_style.LSRenderer`` renderer must not change it to ``<h2>This
+  is an H2</h2``; it must leave as is -- ``## This is an H2``.
+
+  For info on the markup of the above elements, see
+  https://daringfireball.net/projects/markdown/syntax
