@@ -34,15 +34,6 @@ TODO
   block/inline elements are not modified by the
   ``mdl_style.LSRenderer`` renderer:
 
-  * Block elements:
-
-    * Paragraphs and Line Breaks
-    * Headers
-    * Blockquotes
-    * Lists
-    * Code Blocks
-    * Horizontal Rules
-
   * Inline elements:
 
     * Emphasis
