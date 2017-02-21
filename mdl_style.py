@@ -67,6 +67,9 @@ class LSRenderer(Renderer):
         self.fn_lnk_num = 0 # footnote style link number
         self.fn_lnk_refs = [] # footnote style link refs
 
+    def text(self, text):
+        return text
+
     def autolink(self, link, is_email=False):
         return '<{}>'.format(link)
 
