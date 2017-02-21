@@ -19,20 +19,62 @@
 #   <http://www.gnu.org/licenses/>.
 
 import argparse
+import re
 
-from mistune import BlockLexer, InlineLexer, Renderer, Markdown
+from mistune import (BlockGrammar, BlockLexer, InlineLexer, Renderer,
+                     Markdown)
 
 from markdown_link_style.logging import MDLSLogger
 from markdown_link_style._version import __version__
 
+
 # Initialize logger for this module.
 logger = MDLSLogger(__name__)
+
+
+# from mistune
+_inline_tags = [
+    'a', 'em', 'strong', 'small', 's', 'cite', 'q', 'dfn', 'abbr', 'data',
+    'time', 'code', 'var', 'samp', 'kbd', 'sub', 'sup', 'i', 'b', 'u', 'mark',
+    'ruby', 'rt', 'rp', 'bdi', 'bdo', 'span', 'br', 'wbr', 'ins', 'del',
+    'img', 'font',
+]
+_valid_end = r'(?!:/|[^\w\s@]*@)\b'
+_block_tag = r'(?!(?:%s)\b)\w+%s' % ('|'.join(_inline_tags), _valid_end)
+
+
+def _pure_pattern(regex):
+    """Function from mistune."""
+    pattern = regex.pattern
+    if pattern.startswith('^'):
+        pattern = pattern[1:]
+    return pattern
+
+
+class LSBlockGrammar(BlockGrammar):
+
+    def __init__(self):
+        # remove list_block and block_quote from paragraph
+        self.paragraph = re.compile(
+            r'^((?:[^\n]+\n?(?!'
+            r'%s|%s|%s|%s|%s|%s|%s'
+            r'))+)\n*' % (
+                _pure_pattern(self.fences).replace(r'\1', r'\2'),
+                _pure_pattern(self.hrule),
+                _pure_pattern(self.heading),
+                _pure_pattern(self.lheading),
+                _pure_pattern(self.def_links),
+                _pure_pattern(self.def_footnotes),
+                '<' + _block_tag,
+            )
+        )
 
 
 class LSBlockLexer(BlockLexer):
     """Link Style Block Lexer.
 
     """
+    grammar_class = LSBlockGrammar
 
     def __init__(self, rules=None, **kwargs):
         super(LSBlockLexer, self).__init__(rules, **kwargs)
