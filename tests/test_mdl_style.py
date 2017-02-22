@@ -76,6 +76,14 @@ class TestLSRendererIL(object):
         d = _get_data('does_not_parse_hrules_00.md')
         assert_equal(self.md(d), d)
 
+    def test_renderer_does_not_parse_emphasis(self):
+        d = _get_data('does_not_parse_emphasis_00.md')
+        assert_equal(self.md(d), d)
+
+    def test_renderer_does_not_parse_code(self):
+        d = _get_data('does_not_parse_code_00.md')
+        assert_equal(self.md(d), d)
+
     def teardown(self):
         pass
 
