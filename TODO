@@ -24,24 +24,6 @@ TODO
   ``mdl_style.InlineLexer`` and ``mdl_style.LSBlockLexer``
   respectively.
 
-* Add unit tests for ``mdl_style.LSRenderer`` under
-  ``tests.test_mdl_style.TestLSRendererIL`` and
-  ``tests.test_mdl_style.TestLSRendererFN`` to verify that the
-  renderer does not modify block/inline elements other than links and
-  paragraphs.
-
-  Specifically, unit tests must be added to verify that the following
-  block/inline elements are not modified by the
-  ``mdl_style.LSRenderer`` renderer:
-
-  * Inline elements:
-
-    * Emphasis
-    * Code
-
-  For instance, if the input contains ``## This is an H2``, the
-  ``mdl_style.LSRenderer`` renderer must not change it to ``<h2>This
-  is an H2</h2``; it must leave as is -- ``## This is an H2``.
-
-  For info on the markup of the above elements, see
-  https://daringfireball.net/projects/markdown/syntax
+* Add unit tests for ``tests.test_mdl_style.TestLSRendererFN`` class;
+  it must be similar to the ones in
+  ``tests.test_mdl_style.TestLSRendererIL``.
