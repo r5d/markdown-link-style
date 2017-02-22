@@ -47,9 +47,13 @@ class TestLSRendererIL(object):
         expected_result = _get_data('inline_link_style_00-expected.md')
         assert_equal(self.md(d), expected_result)
 
+    def test_renderer_parses_images(self):
+        d = _get_data('inline_parses_images_00.md')
+        expected_result = _get_data('inline_parses_images_00-expected.md')
+        assert_equal(self.md(d), expected_result)
+
     def test_renderer_does_not_parse_link_breaks(self):
         d = _get_data('does_not_parse_link_breaks_00.md')
-        #print('${}$'.format(self.md(d)))
         assert_equal(self.md(d), d)
 
     def test_renderer_does_not_parse_headers(self):

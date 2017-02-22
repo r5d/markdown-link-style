@@ -129,6 +129,11 @@ class LSRenderer(Renderer):
         link_text = self._stylize_link(link, title, text)
         return link_text
 
+    def image(self, src, title, text):
+        # Markup for images are same as links, except it is prefixed
+        # with a bang (!).
+        return '{}{}'.format('!', self.link(src, title, text))
+
     def _stylize_link(self, link, title, text):
         if self.link_style == 'inline':
             return self._gen_inline_link(link, title, text)

@@ -38,7 +38,6 @@ TODO
 
     * Emphasis
     * Code
-    * Images
 
   For instance, if the input contains ``## This is an H2``, the
   ``mdl_style.LSRenderer`` renderer must not change it to ``<h2>This
