@@ -47,40 +47,40 @@ class TestLSRendererIL(object):
         expected_result = _get_data('inline_link_style_00-expected.md')
         assert_equal(self.md(d), expected_result)
 
-    def test_renderer_parses_images(self):
+    def test_renderer_parses_images_00(self):
         d = _get_data('inline_parses_images_00.md')
         expected_result = _get_data('inline_parses_images_00-expected.md')
         assert_equal(self.md(d), expected_result)
 
-    def test_renderer_does_not_parse_link_breaks(self):
+    def test_renderer_does_not_parse_link_breaks_00(self):
         d = _get_data('does_not_parse_link_breaks_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_headers(self):
+    def test_renderer_does_not_parse_headers_00(self):
         d = _get_data('does_not_parse_headers_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_blockquotes(self):
+    def test_renderer_does_not_parse_blockquotes_00(self):
         d = _get_data('does_not_parse_blockquotes_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_lists(self):
+    def test_renderer_does_not_parse_lists_00(self):
         d = _get_data('does_not_parse_lists_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_codeblocks(self):
+    def test_renderer_does_not_parse_codeblocks_00(self):
         d = _get_data('does_not_parse_codeblocks_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_hrules(self):
+    def test_renderer_does_not_parse_hrules_00(self):
         d = _get_data('does_not_parse_hrules_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_emphasis(self):
+    def test_renderer_does_not_parse_emphasis_00(self):
         d = _get_data('does_not_parse_emphasis_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_code(self):
+    def test_renderer_does_not_parse_code_00(self):
         d = _get_data('does_not_parse_code_00.md')
         assert_equal(self.md(d), d)
 
@@ -106,40 +106,40 @@ class TestLSRendererFN(object):
         expected_result = _get_data('footnote_link_style_00-expected.md')
         assert_equal(self.md(d), expected_result)
 
-    def test_renderer_parses_images(self):
+    def test_renderer_parses_images_00(self):
         d = _get_data('footnote_parses_images_00.md')
         expected_result = _get_data('footnote_parses_images_00-expected.md')
         assert_equal(self.md(d), expected_result)
 
-    def test_renderer_does_not_parse_link_breaks(self):
+    def test_renderer_does_not_parse_link_breaks_00(self):
         d = _get_data('does_not_parse_link_breaks_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_headers(self):
+    def test_renderer_does_not_parse_headers_00(self):
         d = _get_data('does_not_parse_headers_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_blockquotes(self):
+    def test_renderer_does_not_parse_blockquotes_00(self):
         d = _get_data('does_not_parse_blockquotes_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_lists(self):
+    def test_renderer_does_not_parse_lists_00(self):
         d = _get_data('does_not_parse_lists_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_codeblocks(self):
+    def test_renderer_does_not_parse_codeblocks_00(self):
         d = _get_data('does_not_parse_codeblocks_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_hrules(self):
+    def test_renderer_does_not_parse_hrules_00(self):
         d = _get_data('does_not_parse_hrules_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_emphasis(self):
+    def test_renderer_does_not_parse_emphasis_00(self):
         d = _get_data('does_not_parse_emphasis_00.md')
         assert_equal(self.md(d), d)
 
-    def test_renderer_does_not_parse_code(self):
+    def test_renderer_does_not_parse_code_00(self):
         d = _get_data('does_not_parse_code_00.md')
         assert_equal(self.md(d), d)
 
