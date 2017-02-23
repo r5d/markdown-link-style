@@ -23,7 +23,3 @@ TODO
   ``inline``, ``block`` are instances of ``mdl_style.LSRenderer``,
   ``mdl_style.InlineLexer`` and ``mdl_style.LSBlockLexer``
   respectively.
-
-* Add unit tests for ``tests.test_mdl_style.TestLSRendererFN`` class;
-  it must be similar to the ones in
-  ``tests.test_mdl_style.TestLSRendererIL``.
