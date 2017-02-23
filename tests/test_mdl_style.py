@@ -96,10 +96,52 @@ class TestLSRendererFN(object):
     def setup(self):
         self.md = LSMarkdown(link_style='footnote')
 
+    def test_autolink_00(self):
+        d = _get_data('autolink_00.md')
+        d_expected = _get_data('autolink_00-expected.md')
+        assert_equals(self.md(d), d_expected)
+
     def test_link_inline_to_footnote_style_conversion_00(self):
         d = _get_data('footnote_link_style_00.md')
         expected_result = _get_data('footnote_link_style_00-expected.md')
         assert_equal(self.md(d), expected_result)
+
+    def test_renderer_parses_images(self):
+        d = _get_data('footnote_parses_images_00.md')
+        expected_result = _get_data('footnote_parses_images_00-expected.md')
+        assert_equal(self.md(d), expected_result)
+
+    def test_renderer_does_not_parse_link_breaks(self):
+        d = _get_data('does_not_parse_link_breaks_00.md')
+        assert_equal(self.md(d), d)
+
+    def test_renderer_does_not_parse_headers(self):
+        d = _get_data('does_not_parse_headers_00.md')
+        assert_equal(self.md(d), d)
+
+    def test_renderer_does_not_parse_blockquotes(self):
+        d = _get_data('does_not_parse_blockquotes_00.md')
+        assert_equal(self.md(d), d)
+
+    def test_renderer_does_not_parse_lists(self):
+        d = _get_data('does_not_parse_lists_00.md')
+        assert_equal(self.md(d), d)
+
+    def test_renderer_does_not_parse_codeblocks(self):
+        d = _get_data('does_not_parse_codeblocks_00.md')
+        assert_equal(self.md(d), d)
+
+    def test_renderer_does_not_parse_hrules(self):
+        d = _get_data('does_not_parse_hrules_00.md')
+        assert_equal(self.md(d), d)
+
+    def test_renderer_does_not_parse_emphasis(self):
+        d = _get_data('does_not_parse_emphasis_00.md')
+        assert_equal(self.md(d), d)
+
+    def test_renderer_does_not_parse_code(self):
+        d = _get_data('does_not_parse_code_00.md')
+        assert_equal(self.md(d), d)
 
     def teardown(self):
         pass
