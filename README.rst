@@ -1,8 +1,7 @@
 markdown-link-style
 ===================
 
-A script that lets you switch between inline and footnote link style
-in markdown documents.
+Switch between inline and footnote link style in markdown documents.
 
 source
 ------
