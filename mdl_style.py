@@ -181,7 +181,7 @@ class LSRenderer(Renderer):
         for ref in self.fn_lnk_refs:
             refs += '{}\n'.format(ref)
 
-        # empty fn_lnk_refs
+        # Empty fn_lnk_refs
         self.fn_lnk_refs = []
 
         return refs
@@ -204,8 +204,14 @@ class LSMarkdown(Markdown):
         super(LSMarkdown, self).__init__(renderer, inline, block, **kwargs)
 
     def parse(self, text):
+        # Reset footnote link variables.
+        self.renderer.fn_lnk_num = 0
+        self.renderer.fn_lnk_refs = []
+
+        # Parse text.
         out = super(LSMarkdown, self).parse(text)
 
+        # Spit out.
         return out.lstrip('\n')
 
 
