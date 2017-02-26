@@ -145,3 +145,24 @@ class TestLSRendererFN(object):
 
     def teardown(self):
         pass
+
+
+class TestMDLSLogger(object):
+    """Test class for mdl_style.MDLSLogger footnote link style.
+
+    """
+ 
+    def setup(self):
+        self.logger = MDLSLogger('DebugTest')
+	
+    def test_debug(self):
+        self.logger.debug('DEBUG::MSG')
+        
+    def test_info(self):
+        self.logger.info('INFO::MSG')
+        
+    def test_warning(self):
+        self.logger.warning('WARNING::MSG')    
+      
+    def teardown(self):
+        pass

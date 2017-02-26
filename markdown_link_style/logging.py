@@ -28,23 +28,23 @@ class MDLSLogger(object):
     def __init__(self, name):
         self.logger = logging.getLogger(name)
 
-    def debug(msg, *args, **kwargs):
+    def debug(self, msg, *args, **kwargs):
         self.logger.debug(msg, *args, **kwargs)
 
-    def info(msg, *args, **kwargs):
+    def info(self, msg, *args, **kwargs):
         self.logger.info(msg, *args, **kwargs)
 
-    def warning(msg, *args, **kwargs):
+    def warning(self, msg, *args, **kwargs):
         self.logger.warning(msg, *args, **kwargs)
 
-    def error(msg, *args, **kwargs):
+    def error(self, msg, *args, **kwargs):
         self.logger.error(msg, *args, **kwargs)
 
-    def critical(msg, *args, **kwargs):
+    def critical(self, msg, *args, **kwargs):
         self.logger.critical(msg, *args, **kwargs)
 
-    def log(msg, *args, **kwargs):
+    def log(self, msg, *args, **kwargs):
         self.logger.log(msg, *args, **kwargs)
 
-    def exception(msg, *args, **kwargs):
+    def exception(self, msg, *args, **kwargs):
         self.logger.exception(msg, *args, **kwargs)
