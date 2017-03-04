@@ -47,6 +47,11 @@ class TestLSRendererIL(object):
         expected_result = _get_data('inline_link_style_00-expected.md')
         assert_equal(self.md(d), expected_result)
 
+    def test_link_footnote_to_inline_style_conversion_01(self):
+        d = _get_data('inline_link_style_01.md')
+        expected_result = _get_data('inline_link_style_01-expected.md')
+        assert_equal(self.md(d), expected_result)
+
     def test_renderer_parses_images_00(self):
         d = _get_data('inline_parses_images_00.md')
         expected_result = _get_data('inline_parses_images_00-expected.md')
