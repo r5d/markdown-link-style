@@ -3,10 +3,8 @@
 TODO
 ====
 
-* Add unit tests for markdown_link_style.logging module.
-
-  A good place to put the unit tests for this module is under
-  ``tests/markdown_link_style/test_logging.py``.
+* ``markdown_link_style.logging.MDLogger`` does not seem to handle all
+  logging levels; look into this and fix it.
 
 * Add unit test for ``mdl_style.LSBlockLexer``,
   ``mdl_style.LSInlineLexer`` classes.
