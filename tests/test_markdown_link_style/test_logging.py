@@ -53,5 +53,10 @@ class TestMDLSLogger(object):
         self.logger.error(log_msg)
         assert self.stream.getvalue().strip('\n') == log_msg
 
+    def test_critical(self):
+        log_msg = 'DEBUG::CRITICAL'
+        self.logger.critical(log_msg)
+        assert self.stream.getvalue().strip('\n') == log_msg
+
     def teardown(self):
         pass
