@@ -18,6 +18,10 @@
 #   along with markdown-link-style (see COPYING).  If not, see
 #   <http://www.gnu.org/licenses/>.
 
+import sys
+
+from io import StringIO
+
 from markdown_link_style.logging import MDLSLogger
 
 class TestMDLSLogger(object):
@@ -26,10 +30,13 @@ class TestMDLSLogger(object):
     """
 
     def setup(self):
-        self.logger = MDLSLogger('DebugTest')
+        self.stream = StringIO()
+        self.logger = MDLSLogger('TestLogger', self.stream)
 
     def test_debug(self):
-        self.logger.debug('DEBUG::MSG')
+        log_msg = 'DEBUG::MSG'
+        self.logger.debug(log_msg)
+        assert self.stream.getvalue().strip('\n') == log_msg
 
     def test_info(self):
         self.logger.info('INFO::MSG')
