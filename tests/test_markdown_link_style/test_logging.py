@@ -48,5 +48,10 @@ class TestMDLSLogger(object):
         self.logger.warning(log_msg)
         assert self.stream.getvalue().strip('\n') == log_msg
 
+    def test_error(self):
+        log_msg = 'DEBUG::ERROR'
+        self.logger.error(log_msg)
+        assert self.stream.getvalue().strip('\n') == log_msg
+
     def teardown(self):
         pass
