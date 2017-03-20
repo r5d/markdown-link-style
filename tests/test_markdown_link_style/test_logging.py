@@ -39,7 +39,9 @@ class TestMDLSLogger(object):
         assert self.stream.getvalue().strip('\n') == log_msg
 
     def test_info(self):
-        self.logger.info('INFO::MSG')
+        log_msg = 'DEBUG::INFO'
+        self.logger.info(log_msg)
+        assert self.stream.getvalue().strip('\n') == log_msg
 
     def test_warning(self):
         self.logger.warning('WARNING::MSG')
