@@ -19,14 +19,22 @@
 #   <http://www.gnu.org/licenses/>.
 
 import logging
+import sys
 
 class MDLSLogger(object):
     """Logging utility for modules in markdown-link-style.
 
     """
 
-    def __init__(self, name):
+    def __init__(self, name, stream=sys.stdout):
         self.logger = logging.getLogger(name)
+
+        # Console handler.
+        sh = logging.StreamHandler(stream)
+        sh.setLevel(logging.DEBUG)
+
+        # Add handler to logger.
+        self.logger.addHandler(sh)
 
     def debug(self, msg, *args, **kwargs):
         self.logger.debug(msg, *args, **kwargs)
