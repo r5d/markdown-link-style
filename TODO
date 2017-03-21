@@ -3,9 +3,6 @@
 TODO
 ====
 
-* ``markdown_link_style.logging.MDLogger`` does not seem to handle all
-  logging levels; look into this and fix it.
-
 * Add unit test for ``mdl_style.LSBlockLexer``,
   ``mdl_style.LSInlineLexer`` classes.
 
