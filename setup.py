@@ -35,7 +35,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 config = {
     'name': 'markdown-link-style',
     'version': __version__,
-    'description': 'Switch between markdown inline and footnote link styles',
+    'description': 'Switch between inline and footnote link style in markdown documents.',
     'long_description': long_description,
     'platforms': 'GNU/Linux',
     'url': 'https://git.ricketyspace.net/markdown-link-style',
