@@ -6,7 +6,7 @@ install
 
 ::
 
-   pip install markdown-link-style
+   pip3 install markdown-link-style
 
 source
 ------
