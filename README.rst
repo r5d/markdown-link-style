@@ -16,10 +16,10 @@ usage
 ::
 
    # switch to footnote link style
-   $ mdl-style footnote path/to/document.md
+   $ mdl-style footnote path/to/document.md > document-footnote-style.md
 
    # switch to inline link style
-   $ mdl-style inline path/to/document.md
+   $ mdl-style inline path/to/document.md > document-inline-style.md
 
 license
 -------
