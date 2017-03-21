@@ -1,7 +1,12 @@
 markdown-link-style
 ===================
 
-Switch between inline and footnote link style in markdown documents.
+install
+-------
+
+::
+
+   pip install markdown-link-style
 
 source
 ------
