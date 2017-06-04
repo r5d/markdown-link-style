@@ -42,9 +42,11 @@ clean-build:
 	@rm -rf build/
 	@rm -rf dist/
 	@rm -rf *.egg-info
+.PHONY: clean-build
 
 clean-pyc:
 	@find . -name '*.pyc' -exec rm -f {} +
+.PHONY: clean-pyc
 
 clean-venv:
 	@rm -rf bin/
