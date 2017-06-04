@@ -20,11 +20,21 @@ usage
 
 ::
 
-   # switch to footnote link style
-   $ mdl-style footnote path/to/document.md > document-footnote-style.md
+   # footnote style
 
-   # switch to inline link style
-   $ mdl-style inline path/to/document.md > document-inline-style.md
+   ## switch to footnote link style
+   $ mdl-style footnote path/to/document.md
+
+   ## write footnote link style version to another file
+   $ mdl-style footnote path/to/document.md path/to/document-footnote-style.md
+
+   # inline style
+
+   ## switch to inline link style
+   $ mdl-style inline path/to/document.md
+
+   ## write inline link style version to another file
+   $ mdl-style inline path/to/document.md path/to/document-inline-style.md
 
 license
 -------

@@ -249,8 +249,13 @@ def _write_to(file_, content):
 
 def _mdl_stylize(args):
     ls = LinkStyler(args.link_style)
-    print(ls(args.file), end='')
+    stylized_content = ls(args.in_file)
 
+    if args.out_file:
+        args.in_file.close()
+        _write_to(open(args.out_file, 'wt'), stylized_content)
+    else:
+        _write_to(args.in_file, stylized_content)
 
 
 def _get_args(args=None):
@@ -259,8 +264,16 @@ def _get_args(args=None):
                             version=__version__)
     parser.add_argument('link_style', choices=['inline', 'footnote'],
                         help='markdown link style.')
-    parser.add_argument('file', type=argparse.FileType('r'),
+    parser.add_argument('in_file', type=argparse.FileType('rt+'),
                         help='path to markdown file.')
+    parser.add_argument('out_file', nargs='?',
+                        type=str,
+                        default=None,
+                        help= ' '.join(['path to output file.',
+                                'if it is not given, the output is',
+                                'directly written to the original',
+                                'in_file.']))
+
     return parser.parse_args(args)
 
 
