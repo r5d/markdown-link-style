@@ -252,15 +252,16 @@ def _mdl_stylize(args):
     print(ls(args.file), end='')
 
 
-def _get_args():
+
+def _get_args(args=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('--version', action='version',
                             version=__version__)
     parser.add_argument('link_style', choices=['inline', 'footnote'],
-                        help='Markdown Link style.')
+                        help='markdown link style.')
     parser.add_argument('file', type=argparse.FileType('r'),
-                        help='Path to Markdown file.')
-    return parser.parse_args()
+                        help='path to markdown file.')
+    return parser.parse_args(args)
 
 
 def main():
