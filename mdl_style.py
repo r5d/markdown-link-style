@@ -235,6 +235,18 @@ class LinkStyler(object):
         return md(text)
 
 
+def _write_to(file_, content):
+        """Write `content` to `file_`.
+
+        `file_` is expected to be a sub-class of `io.TextIOBase`.
+        """
+        file_.truncate(0)
+        file_.seek(0)
+        file_.write(content)
+        file_.flush()
+        file_.close()
+
+
 def _mdl_stylize(args):
     ls = LinkStyler(args.link_style)
     print(ls(args.file), end='')
