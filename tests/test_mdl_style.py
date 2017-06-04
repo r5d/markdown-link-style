@@ -20,7 +20,7 @@
 
 from mistune import Renderer, Markdown
 from nose.tools import *
-from pkg_resources import resource_string
+from pkg_resources import resource_string, resource_filename
 
 from mdl_style import *
 
@@ -28,6 +28,9 @@ from mdl_style import *
 def _get_data(f):
     rs = resource_string(__name__, '/'.join(['data', f]))
     return rs.decode()
+
+def _get_data_path(f):
+    return resource_filename(__name__, '/'.join(['data', f]))
 
 class TestLSRendererIL(object):
     """Test class for mdl_style.LSRenderer inline link style.
