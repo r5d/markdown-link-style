@@ -34,10 +34,10 @@ logger = MDLSLogger(__name__)
 
 # from mistune
 _inline_tags = [
-    'a', 'em', 'strong', 'small', 's', 'cite', 'q', 'dfn', 'abbr', 'data',
-    'time', 'code', 'var', 'samp', 'kbd', 'sub', 'sup', 'i', 'b', 'u', 'mark',
-    'ruby', 'rt', 'rp', 'bdi', 'bdo', 'span', 'br', 'wbr', 'ins', 'del',
-    'img', 'font',
+    'a', 'em', 'strong', 'small', 's', 'cite', 'q', 'dfn', 'abbr',
+    'data', 'time', 'code', 'var', 'samp', 'kbd', 'sub', 'sup', 'i',
+    'b', 'u', 'mark', 'ruby', 'rt', 'rp', 'bdi', 'bdo', 'span', 'br',
+    'wbr', 'ins', 'del', 'img', 'font',
 ]
 _valid_end = r'(?!:/|[^\w\s@]*@)\b'
 _block_tag = r'(?!(?:%s)\b)\w+%s' % ('|'.join(_inline_tags), _valid_end)
@@ -191,7 +191,8 @@ class LSMarkdown(Markdown):
     """Link Style Markdown parser.
     """
 
-    def __init__(self, renderer=None, inline=None, block=None, **kwargs):
+    def __init__(self, renderer=None, inline=None, block=None,
+                     **kwargs):
         link_style = kwargs.get('link_style') or 'inline'
 
         if not renderer:
@@ -201,7 +202,8 @@ class LSMarkdown(Markdown):
         if not block:
             block = LSBlockLexer()
 
-        super(LSMarkdown, self).__init__(renderer, inline, block, **kwargs)
+        super(LSMarkdown, self).__init__(renderer, inline, block,
+                                             **kwargs)
 
     def parse(self, text):
         # Reset footnote link variables.
@@ -240,7 +242,8 @@ def _mdl_stylize(args):
 
 def _get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--version', action='version', version=__version__)
+    parser.add_argument('--version', action='version',
+                            version=__version__)
     parser.add_argument('link_style', choices=['inline', 'footnote'],
                         help='Markdown Link style.')
     parser.add_argument('file', type=argparse.FileType('r'),

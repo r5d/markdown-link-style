@@ -54,7 +54,8 @@ class TestLSRendererIL(object):
 
     def test_renderer_parses_images_00(self):
         d = _get_data('inline_parses_images_00.md')
-        expected_result = _get_data('inline_parses_images_00-expected.md')
+        expected_result = _get_data(
+            'inline_parses_images_00-expected.md')
         assert_equal(self.md(d), expected_result)
 
     def test_renderer_does_not_parse_link_breaks_00(self):
@@ -108,17 +109,20 @@ class TestLSRendererFN(object):
 
     def test_link_inline_to_footnote_style_conversion_00(self):
         d = _get_data('footnote_link_style_00.md')
-        expected_result = _get_data('footnote_link_style_00-expected.md')
+        expected_result = _get_data(
+            'footnote_link_style_00-expected.md')
         assert_equal(self.md(d), expected_result)
 
     def test_link_inline_to_footnote_style_conversion_01(self):
         d = _get_data('footnote_link_style_01.md')
-        expected_result = _get_data('footnote_link_style_01-expected.md')
+        expected_result = _get_data(
+            'footnote_link_style_01-expected.md')
         assert_equal(self.md(d), expected_result)
 
     def test_renderer_parses_images_00(self):
         d = _get_data('footnote_parses_images_00.md')
-        expected_result = _get_data('footnote_parses_images_00-expected.md')
+        expected_result = _get_data(
+            'footnote_parses_images_00-expected.md')
         assert_equal(self.md(d), expected_result)
 
     def test_renderer_does_not_parse_link_breaks_00(self):

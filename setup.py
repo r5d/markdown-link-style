@@ -35,7 +35,8 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 config = {
     'name': 'markdown-link-style',
     'version': __version__,
-    'description': 'Switch between inline and footnote link style in markdown documents.',
+    'description': 'Switch between inline and footnote link style ' +
+    'in markdown documents.',
     'long_description': long_description,
     'platforms': 'GNU/Linux',
     'url': 'https://git.ricketyspace.net/markdown-link-style',
@@ -47,7 +48,8 @@ config = {
         'Environment :: Console',
         'Intended Audience :: Developers',
         'Intended Audience :: End Users/Desktop',
-        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'License :: OSI Approved :: ' +
+        'GNU General Public License v3 or later (GPLv3+)',
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3 :: Only',
