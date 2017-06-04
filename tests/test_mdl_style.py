@@ -20,13 +20,21 @@
 
 import os
 import os.path
+import sys
+
+
+from io import StringIO
 from random import randint
+from unittest import mock
+
+
 from mistune import Renderer, Markdown
 from nose.tools import *
 from pkg_resources import resource_string, resource_filename
 
-from mdl_style import *
 
+from markdown_link_style._version import __version__
+from mdl_style import *
 from mdl_style import _get_args, _mdl_stylize
 
 def _get_data(f):
@@ -225,3 +233,67 @@ class TestMdlStyleMdlStylize(object):
         if os.path.isfile(self.out_file):
             os.remove(self.out_file)
 
+
+class TestMdlStyleGetArgs(object):
+    """Testing mdl_style._get_args.
+
+    """
+
+    def setup(self):
+        self.out = None
+
+
+    @raises(SystemExit)
+    def test_get_args_version(self):
+        real_exit = sys.exit
+        def mock_exit(args):
+            assert_equal(sys.stdout.getvalue(),
+                             __version__ + '\n')
+            real_exit(args)
+
+        with mock.patch('sys.stdout', new_callable=StringIO) as out, \
+          mock.patch('sys.exit', new=mock_exit):
+            raw_args = ['--version']
+            _get_args(raw_args)
+
+
+    def test_get_args_inline_infile(self):
+        lstyle = 'inline'
+        md_file = 'autolink_00.md'
+        raw_args = [lstyle, _get_data_path(md_file)]
+        args = _get_args(raw_args)
+        assert_equal(args.link_style, lstyle)
+        assert_equal(args.in_file.read(), _get_data(md_file))
+
+
+    def test_get_args_inline_infile_outfile(self):
+        lstyle = 'inline'
+        md_file = 'autolink_00.md'
+        raw_args = [lstyle, _get_data_path(md_file), 'outfile.md']
+        args = _get_args(raw_args)
+        assert_equal(args.link_style, lstyle)
+        assert_equal(args.in_file.read(), _get_data(md_file))
+        assert_equal(type(args.out_file), str)
+
+
+    def test_get_args_footnote_infile(self):
+        lstyle = 'footnote'
+        md_file = 'autolink_00.md'
+        raw_args = [lstyle, _get_data_path(md_file)]
+        args = _get_args(raw_args)
+        assert_equal(args.link_style, lstyle)
+        assert_equal(args.in_file.read(), _get_data(md_file))
+
+
+    def test_get_args_footnote_infile_outfile(self):
+        lstyle = 'footnote'
+        md_file = 'autolink_00.md'
+        raw_args = [lstyle, _get_data_path(md_file), 'outfile.md']
+        args = _get_args(raw_args)
+        assert_equal(args.link_style, lstyle)
+        assert_equal(args.in_file.read(), _get_data(md_file))
+        assert_equal(type(args.out_file), str)
+
+
+    def teardown(self):
+        pass
