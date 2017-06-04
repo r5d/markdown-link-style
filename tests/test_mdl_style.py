@@ -18,12 +18,16 @@
 #   along with markdown-link-style (see COPYING).  If not, see
 #   <http://www.gnu.org/licenses/>.
 
+import os
+import os.path
+from random import randint
 from mistune import Renderer, Markdown
 from nose.tools import *
 from pkg_resources import resource_string, resource_filename
 
 from mdl_style import *
 
+from mdl_style import _get_args, _mdl_stylize
 
 def _get_data(f):
     rs = resource_string(__name__, '/'.join(['data', f]))
@@ -162,3 +166,62 @@ class TestLSRendererFN(object):
 
     def teardown(self):
         pass
+
+
+class TestMdlStyleMdlStylize(object):
+    """Testing mdl_style._mdl_stylize.
+
+    """
+
+    @classmethod
+    def setup_class(self):
+        self.test_data = {}
+
+        self.test_data['inline'] = {}
+        self.test_data['inline']['in'] = _get_data(
+            'inline_link_style_00.md')
+        self.test_data['inline']['out'] = _get_data(
+            'inline_link_style_00-expected.md')
+
+        self.test_data['footnote'] = {}
+        self.test_data['footnote']['in'] = _get_data(
+        'footnote_link_style_00.md')
+        self.test_data['footnote']['out'] = _get_data(
+            'footnote_link_style_00-expected.md')
+
+        self.in_file = 'in_file.md'
+        self.out_file = 'out_file.md'
+
+
+    def setup(self):
+        self.link_style = ['inline', 'footnote'][randint(0, 1)]
+
+        with open(self.in_file, 'w') as f:
+            f.write(self.test_data[self.link_style]['in'])
+
+
+    def test_mdl_stylize_infile(self):
+        args = _get_args([self.link_style, self.in_file])
+        _mdl_stylize(args) # the test.
+
+        with open(self.in_file, 'r') as f:
+            assert_equal(f.read(),
+                             self.test_data[self.link_style]['out'])
+
+
+    def test_mdl_stylize_infile_outfile(self):
+        args = _get_args([self.link_style, self.in_file, self.out_file])
+        _mdl_stylize(args)
+
+        with open(self.out_file, 'r') as f:
+            assert_equal(f.read(),
+                             self.test_data[self.link_style]['out'])
+
+
+    def teardown(self):
+        if os.path.isfile(self.in_file):
+            os.remove(self.in_file)
+
+        if os.path.isfile(self.out_file):
+            os.remove(self.out_file)
+
