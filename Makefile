@@ -30,9 +30,9 @@ develop:
 	pip install -r requirements.txt
 .PHONY: develop
 
-build-dist:
+build:
 	@python setup.py sdist bdist_wheel
-.PHONY: build-dist
+.PHONY: build
 
 upload:
 	twine upload -r pypi -s --sign-with 'gpg2' \
