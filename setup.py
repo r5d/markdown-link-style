@@ -27,43 +27,42 @@ from codecs import open
 from os import path
 
 from markdown_link_style._version import __version__
+
 here = path.abspath(path.dirname(__file__))
 
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(here, "README.rst"), encoding="utf-8") as f:
     long_description = f.read()
 
 config = {
-    'name': 'markdown-link-style',
-    'version': __version__,
-    'description': 'Switch between inline and footnote link style ' +
-    'in markdown documents.',
-    'long_description': long_description,
-    'platforms': 'GNU/Linux',
-    'url': 'https://git.ricketyspace.net/markdown-link-style',
-    'author': 'rsiddharth',
-    'author_email': 's@ricketyspace.net',
-    'license': 'GNU General Public License version 3 or later',
-    'classifiers': [
-        'Development Status :: 2 - Pre-Alpha',
-        'Environment :: Console',
-        'Intended Audience :: Developers',
-        'Intended Audience :: End Users/Desktop',
-        'License :: OSI Approved :: ' +
-        'GNU General Public License v3 or later (GPLv3+)',
-        'Operating System :: POSIX :: Linux',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3 :: Only',
-        'Topic :: Documentation',
-        'Topic :: Text Processing :: General',
-        'Topic :: Utilities',
+    "name": "markdown-link-style",
+    "version": __version__,
+    "description": "Switch between inline and footnote link style "
+    + "in markdown documents.",
+    "long_description": long_description,
+    "platforms": "GNU/Linux",
+    "url": "https://git.ricketyspace.net/markdown-link-style",
+    "author": "rsiddharth",
+    "author_email": "s@ricketyspace.net",
+    "license": "GNU General Public License version 3 or later",
+    "classifiers": [
+        "Development Status :: 2 - Pre-Alpha",
+        "Environment :: Console",
+        "Intended Audience :: Developers",
+        "Intended Audience :: End Users/Desktop",
+        "License :: OSI Approved :: "
+        + "GNU General Public License v3 or later (GPLv3+)",
+        "Operating System :: POSIX :: Linux",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3 :: Only",
+        "Topic :: Documentation",
+        "Topic :: Text Processing :: General",
+        "Topic :: Utilities",
     ],
-    'keywords': 'markdown link inline footnote style',
-    'py_modules': ['mdl_style'],
-    'packages': ['markdown_link_style'],
-    'install_requires': ['mistune>0.8,<1'],
-    'entry_points': {
-        'console_scripts': ['mdl-style = mdl_style:main']
-    }
+    "keywords": "markdown link inline footnote style",
+    "py_modules": ["mdl_style"],
+    "packages": ["markdown_link_style"],
+    "install_requires": ["mistune>0.8,<1"],
+    "entry_points": {"console_scripts": ["mdl-style = mdl_style:main"]},
 }
 
 setup(**config)

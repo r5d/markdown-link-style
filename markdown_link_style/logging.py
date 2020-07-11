@@ -21,6 +21,7 @@
 import logging
 import sys
 
+
 class MDLSLogger(object):
     """Logging utility for modules in markdown-link-style.
 
@@ -50,4 +51,3 @@ class MDLSLogger(object):
 
     def critical(self, msg, *args, **kwargs):
         self.logger.critical(msg, *args, **kwargs)
-

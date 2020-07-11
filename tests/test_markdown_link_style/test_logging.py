@@ -24,6 +24,7 @@ from io import StringIO
 
 from markdown_link_style.logging import MDLSLogger
 
+
 class TestMDLSLogger(object):
     """Test class for markdown_link_style.logging.MDLSLogger.
 
@@ -31,32 +32,32 @@ class TestMDLSLogger(object):
 
     def setup(self):
         self.stream = StringIO()
-        self.logger = MDLSLogger('TestLogger', self.stream)
+        self.logger = MDLSLogger("TestLogger", self.stream)
 
     def test_debug(self):
-        log_msg = 'DEBUG::MSG'
+        log_msg = "DEBUG::MSG"
         self.logger.debug(log_msg)
-        assert self.stream.getvalue().strip('\n') == log_msg
+        assert self.stream.getvalue().strip("\n") == log_msg
 
     def test_info(self):
-        log_msg = 'DEBUG::INFO'
+        log_msg = "DEBUG::INFO"
         self.logger.info(log_msg)
-        assert self.stream.getvalue().strip('\n') == log_msg
+        assert self.stream.getvalue().strip("\n") == log_msg
 
     def test_warning(self):
-        log_msg = 'DEBUG::WARNING'
+        log_msg = "DEBUG::WARNING"
         self.logger.warning(log_msg)
-        assert self.stream.getvalue().strip('\n') == log_msg
+        assert self.stream.getvalue().strip("\n") == log_msg
 
     def test_error(self):
-        log_msg = 'DEBUG::ERROR'
+        log_msg = "DEBUG::ERROR"
         self.logger.error(log_msg)
-        assert self.stream.getvalue().strip('\n') == log_msg
+        assert self.stream.getvalue().strip("\n") == log_msg
 
     def test_critical(self):
-        log_msg = 'DEBUG::CRITICAL'
+        log_msg = "DEBUG::CRITICAL"
         self.logger.critical(log_msg)
-        assert self.stream.getvalue().strip('\n') == log_msg
+        assert self.stream.getvalue().strip("\n") == log_msg
 
     def teardown(self):
         pass
