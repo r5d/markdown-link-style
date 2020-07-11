@@ -18,4 +18,4 @@
 #   along with markdown-link-style (see COPYING).  If not, see
 #   <http://www.gnu.org/licenses/>.
 
-__version__ = "0.2.1.dev1"
+__version__ = "0.2.1"
