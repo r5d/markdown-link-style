@@ -47,11 +47,3 @@ clean-build:
 clean-pyc:
 	@find . -name '*.pyc' -exec rm -f {} +
 .PHONY: clean-pyc
-
-clean-venv:
-	@rm -rf bin/
-	@rm -rf include/
-	@rm -rf lib/
-	@rm -rf local/
-	@rm -rf man/
-.PHONY: clean-venv
