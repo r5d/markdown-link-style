@@ -22,7 +22,7 @@ test:
 .PHONY: test
 
 fmt:
-	black --include '*.py|markdown_link_style/*.py|tests/*.py' .
+	black --include 'tests/.*py|markdown_link_style/.*py|.*py' .
 .PHONY: fmt
 
 develop:
