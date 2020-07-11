@@ -34,11 +34,9 @@ upload:
 		dist/*.whl
 .PHONY: upload
 
-clean-build:
-	@rm -rf build/
-	@rm -rf dist/
-	@rm -rf *.egg-info
-.PHONY: clean-build
+clean:
+	rm -rf build/ *.egg-info *.egg
+.PHONY: clean
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
