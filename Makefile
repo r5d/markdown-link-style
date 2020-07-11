@@ -45,5 +45,5 @@ clean-build:
 .PHONY: clean-build
 
 clean-pyc:
-	@find . -name '*.pyc' -exec rm -f {} +
+	find . -name '*.pyc' -exec rm -f {} +
 .PHONY: clean-pyc
