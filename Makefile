@@ -44,7 +44,7 @@ upload:
 .PHONY: upload
 
 clean:
-	rm -rf build/ *.egg-info *.egg
+	rm -rf build/ *.egg-info *.egg dist/ __pycache__/
 .PHONY: clean
 
 clean-pyc:
