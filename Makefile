@@ -18,7 +18,7 @@
 #   <http://www.gnu.org/licenses/>.
 
 test:
-	@nosetests
+	nosetests
 .PHONY: test
 
 build-dist:
