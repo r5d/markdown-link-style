@@ -21,6 +21,10 @@ test:
 	nosetests
 .PHONY: test
 
+fmt:
+	black --include '*.py|markdown_link_style/*.py|tests/*.py' .
+.PHONY: fmt
+
 build-dist:
 	@python setup.py sdist bdist_wheel
 .PHONY: build-dist
