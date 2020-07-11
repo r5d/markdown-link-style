@@ -60,7 +60,7 @@ config = {
     'keywords': 'markdown link inline footnote style',
     'py_modules': ['mdl_style'],
     'packages': ['markdown_link_style'],
-    'install_requires': ['mistune'],
+    'install_requires': ['mistune>0.8,<1'],
     'entry_points': {
         'console_scripts': ['mdl-style = mdl_style:main']
     }
